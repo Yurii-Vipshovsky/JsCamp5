@@ -1,0 +1,45 @@
+.header-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &__search-cart{
+        display: flex;
+        align-items: center;
+    }
+    &__links-container{
+        a{
+            cursor: pointer;
+            margin-left: 2vw;
+            color: $main-blue-collor;
+        }
+    }
+    &__search-container{
+        button{
+            border-radius: 50%;
+            border:none;
+            background-color: $main-green-collor;
+            //background-image: ;
+        }
+        input{
+            border-radius: 20px;
+            border:none;
+            background-color: $very-light-grey-collor;
+        }
+    }
+    &__cart-container{
+        display: flex;
+        border-radius: 20px;
+        border: 2px solid $very-light-grey-collor;
+        img{
+            background-color: $main-blue-collor;
+            border-radius: 50%;
+        }
+        p{
+            color: $main-blue-collor;
+        }
+    }
+}
+
+#cart-count{
+    display: inline;
+}

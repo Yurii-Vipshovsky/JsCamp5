@@ -1,0 +1,26 @@
+@import "variables";
+
+@mixin default-button{
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+@mixin default-dark-button{
+    @include default-button;
+    background-color: $main-blue-collor;
+    color: $very-light-grey-collor;
+}
+
+@mixin default-yellow-button{
+    @include default-button;
+    background-color: $main-yellow-collor;
+    color: $main-blue-collor;
+}
+
+@mixin default-white-button{
+    @include default-button;
+    background-color: white;//mb light grey
+    color: $main-blue-collor;
+    border: 1px $main-blue-collor;
+}

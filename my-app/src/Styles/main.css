@@ -1,0 +1,72 @@
+.header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.header-block__search-cart {
+  display: flex;
+  align-items: center;
+}
+.header-block__links-container a {
+  cursor: pointer;
+  margin-left: 2vw;
+  color: #274C5B;
+}
+.header-block__search-container button {
+  border-radius: 50%;
+  border: none;
+  background-color: #7EB693;
+}
+.header-block__search-container input {
+  border-radius: 20px;
+  border: none;
+  background-color: #F9F8F8;
+}
+.header-block__cart-container {
+  display: flex;
+  border-radius: 20px;
+  border: 2px solid #F9F8F8;
+}
+.header-block__cart-container img {
+  background-color: #274C5B;
+  border-radius: 50%;
+}
+.header-block__cart-container p {
+  color: #274C5B;
+}
+
+#cart-count {
+  display: inline;
+}
+
+.info-block {
+  display: flex;
+  justify-content: center;
+}
+.info-block__follow-us {
+  border-left: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.info-block__contact-us {
+  text-align: end;
+  padding-right: 5vw;
+}
+.info-block__utility-pages {
+  padding-left: 5vw;
+}
+
+.footer-block__copyrigh-section {
+  margin-top: 5vh;
+  border-top: 1px solid #D4D4D4;
+  text-align: center;
+}
+
+img {
+  width: 50px;
+}/*# sourceMappingURL=main.css.map */
