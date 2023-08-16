@@ -1,8 +1,8 @@
-import logo from '../logo.svg';
-import instagramIco from '../logo.svg';
-import facebookIco from '../logo.svg';
-import twitterIco from '../logo.svg';
-import printestIco from '../logo.svg';
+import logo from '../Images/Logo.svg';
+import instagramIco from '../Images/Footer/Insta.svg';
+import facebookIco from '../Images/Footer/Fb.svg';
+import twitterIco from '../Images/Footer/Twitter.svg';
+import pintrestIco from '../Images/Footer/Pintrest.svg';
 
 function Footer(){
     return(
@@ -19,12 +19,21 @@ function Footer(){
                 </div>
                 <div className="info-block__follow-us">
                     <img src={logo} alt="Organick"></img>
-                    <p></p>
-                    <div>
-                        <img src={instagramIco} alt="Instagram"></img>
-                        <img src={facebookIco} alt="Facebook"></img>
-                        <img src={twitterIco} alt="X"></img>
-                        <img src={printestIco} alt="Printest"></img>
+                    <p>Simply dummy text of the printing and typesetting industry.<br/>
+                        Lorem Ipsum simply dummy text of the printing </p>
+                    <div className="info-block__social_container">
+                        <div>
+                            <img src={instagramIco} alt="Instagram"></img>
+                        </div>
+                        <div>
+                            <img src={facebookIco} alt="Facebook"></img>
+                        </div>                        
+                        <div>
+                            <img src={twitterIco} alt="X"></img>
+                        </div>                        
+                        <div>
+                            <img src={pintrestIco} alt="Pintrest"></img>
+                        </div>
                     </div>
                 </div>
                 <div className="info-block__utility-pages">
@@ -37,7 +46,7 @@ function Footer(){
                 </div>
             </div>
             <div className="footer-block__copyrigh-section">
-                <p>Copyright C <b>Organick</b> | Designed by <b>VictorFlow</b> Templates - Powered by <b>Webflow</b></p>
+                <p>Copyright &copy; <b>Organick</b> | Designed by <b>VictorFlow</b> Templates - Powered by <b>Webflow</b></p>
             </div>
         </div>
     );

@@ -1,0 +1,20 @@
+@import 'mixins';
+.natural-food{
+    background-image: url("../Images/NaturalFood/Background.png");
+    background-repeat: no-repeat;
+    height: 900px;
+    background-size: 100%;
+    position: relative;
+    &__text-container{
+        position: relative;
+        top: 300px;
+        left: $main-side-margin;
+        width: 84vw;
+        h1{
+            width: 530px;
+        }
+        button{
+            @include default-yellow-button;
+        }
+    }
+}

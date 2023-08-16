@@ -1,5 +1,5 @@
-import logo from '../logo.svg';
-import cartIco from '../logo.svg';
+import logo from '../Images/Logo.svg';
+import cartIco from '../Images/Header/Cart.svg';
 
 function Header(){
     return(
@@ -19,7 +19,9 @@ function Header(){
                     <button></button>
                 </div>
                 <div className="header-block__cart-container">
-                    <img src={cartIco} alt="Cart"></img>
+                    <div>
+                        <img src={cartIco} alt="Cart"></img>
+                    </div>                    
                     <p>Cart <p id="cart-count">(0)</p></p>
                 </div>
             </div>

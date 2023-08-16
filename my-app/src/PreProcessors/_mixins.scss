@@ -3,13 +3,21 @@
 @mixin default-button{
     border-radius: 20px;
     padding: 10px 20px;
+    width: 230px;
+    height: 80px;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 @mixin default-dark-button{
     @include default-button;
     background-color: $main-blue-collor;
-    color: $very-light-grey-collor;
+    color: $very-light-grey-collor;    
 }
 
 @mixin default-yellow-button{

@@ -1,34 +1,48 @@
 @import 'mixins';
 @import 'header';
+@import 'footer';
+@import 'natural-food';
+@import 'small-get-cards';
+@import 'about-us-section';
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 
-.info-block{
-    display: flex;
-    justify-content: center;
-    &__follow-us{
-        border-left: 1px solid $main-grey-collor;
-        border-right: 1px solid $main-grey-collor;
-        padding-left: 5vw;
-        padding-right: 5vw;
-        padding-bottom: 5vh;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    &__contact-us{
-        text-align: end;
-        padding-right: 5vw;
-    }
-    &__utility-pages{
-        padding-left: 5vw;
-    }
+p{
+    font-size: 1.2em;
+    color: $dark-grey-collor;
 }
 
-.footer-block__copyrigh-section{
-    margin-top:5vh;
-    border-top:1px solid $main-grey-collor;
-    text-align: center;
+h1{
+    font-size: 4.375em;
+    color: $main-blue-collor;
 }
 
-img{
-    width: 50px;    
+h2{
+    font-size: 3.125em;
+    color: $main-blue-collor;
+}
+
+h3{
+    font-size: 2.5em;
+    color: $main-blue-collor;
+}
+
+h4{
+    font-size: 2.1875em;
+    color: $main-blue-collor;
+}
+
+h5{
+    font-size: 1.875em;
+    color: $main-blue-collor;
+}
+
+h6{
+    font-size: 1.5625em;
+    color: $main-blue-collor;
+}
+
+.handwriting-text{
+    font-family: 'Yellowtail', cursive;
+    color: $main-green-collor;
+    font-size: 2.25em;
 }

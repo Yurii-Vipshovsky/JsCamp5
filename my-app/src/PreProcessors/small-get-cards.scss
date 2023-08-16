@@ -1,0 +1,44 @@
+@import 'variables';
+
+.small-get-cards{
+    margin-top: 15vh;
+    margin-left: $main-side-margin;
+    margin-right: $main-side-margin;
+    display: flex;
+    justify-content: space-between;
+    &__left-card{
+        background-image: url("../Images/SmallGetCards/LeftCard.jpg");
+        background-size: 100% 100%;
+        width: 33vw;
+        height: 30vh;
+        min-height: 350px;
+        border-radius: 30px;
+        p{
+            color: white;
+            margin-bottom: 10px;
+        }
+        h3{
+            margin-top: 0;
+            color: white;
+        }
+    }
+    &__right-card{
+        background-image: url("../Images/SmallGetCards/RightCard.jpg");
+        background-size: 100% 100%;
+        width: 33vw;
+        height: 30vh;
+        min-height: 350px;
+        border-radius: 30px;
+        p{
+            margin-bottom: 10px;
+        }
+        h3{
+            margin-top: 0;
+        }
+    }
+    &__text-container{
+        width: 45%;
+        margin-left: 5%;
+        margin-top: 15%;
+    }
+}
