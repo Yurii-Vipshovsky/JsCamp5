@@ -1,0 +1,37 @@
+@import 'variables';
+
+.square-blocks{
+    background-color: #F1F8F4;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    &__container{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__element{
+        width: 612px;
+        height: 583px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+            color: $main-blue-collor;
+            padding: 30px 80px;
+            background-color: white;
+            border-radius: 10px;
+            font-size: 25px;
+        }
+    }
+}
+
+#orangic-juice{
+    background-image: url("../Images/SquareBlocks/OrganicJuice.png");
+}
+
+#oranic-food{
+    background-image: url("../Images/SquareBlocks/OrganicFood.png");
+}
+
+#nuts-cookies{
+    background-image: url("../Images/SquareBlocks/NutsCookies.png");
+}

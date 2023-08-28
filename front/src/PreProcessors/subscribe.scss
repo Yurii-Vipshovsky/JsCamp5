@@ -1,0 +1,32 @@
+@import 'mixins';
+
+.subscribe{
+    background-image: url("../Images/Subscribe/Background.png");
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    width: 70vw;
+    display: flex;    
+    align-items: center;
+    justify-content: space-around;
+    margin-left: $main-side-margin;
+    h2{
+        color: white;
+    }
+    &__form{
+        display: flex;        
+        input{
+            width: 20vw;
+            margin-right: 10px;
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: none;
+            &::placeholder {
+                color: #ABABAB;
+                font-style: italic;
+            }
+        }
+        button{
+            @include default-dark-button
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@import 'variables';
+
+.offer-block{
+    display: flex;
+    flex-direction: column;
+    padding: 10vh $main-side-margin;
+    background-color: $main-blue-collor;
+
+    h2{
+        margin-top: 0;
+        color: white;
+    }
+    p{
+        margin-bottom: 0;
+    }
+}

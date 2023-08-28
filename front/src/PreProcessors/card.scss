@@ -1,0 +1,109 @@
+@import 'mixins';
+
+.card{
+    &__decoration{
+        width: 100%;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('../Images/Card/Backgroung.png');
+    }
+    &__orders-container{
+        background-color: #fdb12d33;
+        margin-top: 10vh;
+        padding-bottom: 10vh;
+        button{
+            @include default-dark-button;
+        }
+        h3{
+            margin-right: $main-side-margin;
+            text-align: end;
+        }
+    }
+    &__product{
+        display: flex;
+        justify-content: space-between;
+        margin-left: $main-side-margin;
+        margin-right: $main-side-margin;
+        align-items: center;
+        img{
+            mix-blend-mode: soft-light;
+        }
+    }
+    &__product-name-price{
+        display: flex;
+        align-items: center;
+        p{
+            margin-left: 10px;
+        }
+    }
+    &__quantity-block{
+        display: flex;
+        align-items: center;
+        input{
+            border-radius: 20px;
+            height: 80px;
+            width: 150px;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: $main-blue-collor;
+            border: 1px solid $main-blue-collor;
+            font-size: 20px;
+            text-align: center;
+            font-style: bold;
+        }
+    }
+    &__delete-from-card{
+        position: absolute;
+        right: 100px;
+        width: auto!important;
+        height: auto!important;
+    }
+    &__order-button{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.order-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-left: $main-side-margin;
+    margin-right: $main-side-margin;
+    grid-column-gap: 5vw;
+    input, textarea{
+        border-radius: 20px;
+        height: 80px;
+        margin-right: 20px;
+        color: $main-blue-collor;
+        font-size: 20px;
+        display: block;
+        width: 100%;
+        border: 1px solid #7EB693;
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: left;
+        padding-left: 20px;
+        resize: none;
+    }
+    label{
+        font-size: 1.2em;
+        color: $main-blue-collor;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    &__message{
+        grid-column: 1/3;
+        textarea{
+            padding: 20px
+        }
+    }
+    button{
+        grid-column: 1/3;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10vh;
+    }
+}

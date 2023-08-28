@@ -1,0 +1,22 @@
+.eco-friendly {
+  background-image: url("../Images/EcoFriendly/Background.png");
+  background-repeat: no-repeat;
+  position: relative;
+  height: 931px;
+}
+.eco-friendly__text-block {
+  position: absolute;
+  top: 100px;
+  left: 45%;
+  border-radius: 40px;
+  padding: 50px;
+  background-color: white;
+  width: 700px;
+}
+.eco-friendly__text-block h6 {
+  margin-bottom: 0;
+  margin-top: 35px;
+}
+.eco-friendly__text-block p {
+  margin-bottom: 0;
+}/*# sourceMappingURL=eco-friendly.css.map */

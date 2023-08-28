@@ -1,0 +1,45 @@
+.square-blocks {
+  background-color: #F1F8F4;
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+.square-blocks__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.square-blocks__element {
+  width: 612px;
+  height: 583px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.square-blocks__element p {
+  color: #274C5B;
+  padding: 30px 80px;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+#orangic-juice {
+  background-image: url("../Images/SquareBlocks/OrganicJuice.png");
+}
+
+#oranic-food {
+  background-image: url("../Images/SquareBlocks/OrganicFood.png");
+}
+
+#nuts-cookies {
+  background-image: url("../Images/SquareBlocks/NutsCookies.png");
+}/*# sourceMappingURL=square-blocks.css.map */

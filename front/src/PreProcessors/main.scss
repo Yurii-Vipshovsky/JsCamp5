@@ -1,0 +1,77 @@
+@import 'mixins';
+@import 'header';
+@import 'footer';
+@import 'natural-food';
+@import 'small-get-cards';
+@import 'about-us-section';
+@import 'categories';
+@import 'testimonial';
+@import 'offer';
+@import 'eco-friendly';
+@import 'square-blocks';
+@import 'news';
+@import 'subscribe';
+@import 'modal-overlay';
+@import 'card';
+@import 'not-found';
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+p{
+    font-size: 1.2em;
+    color: $dark-grey-collor;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 4.375em;
+    color: $main-blue-collor;
+}
+
+h2{
+    font-size: 3.125em;
+    color: $main-blue-collor;
+}
+
+h3{
+    font-size: 2.5em;
+    color: $main-blue-collor;
+}
+
+h4{
+    font-size: 2.1875em;
+    color: $main-blue-collor;
+}
+
+h5{
+    font-size: 1.875em;
+    color: $main-blue-collor;
+}
+
+h6{
+    font-size: 1.5625em;
+    color: $main-blue-collor;
+}
+
+.handwriting-text{
+    font-family: 'Yellowtail', cursive;
+    color: $main-green-collor;
+    font-size: 2.25em;
+}
+
+.stars-container{
+    display: flex;
+}
+
+.star-image{
+    width: 25px;
+    height: 25px;
+    background-image: url('../Images/Star.svg');
+    background-repeat: no-repeat;
+}
+
+.order-confirm__text{
+    text-align: center;
+}

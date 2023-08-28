@@ -1,0 +1,78 @@
+@import 'mixins';
+
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f4f4f4c4;
+    text-align: center;
+    padding-top: 10vh;
+    z-index: 2;
+    .product__name{
+        border: none;
+    }
+    .hidden{
+        display: none;
+    }
+    &__close-button{
+        width: auto!important;
+        height: auto!important;
+        position: absolute;
+        right: 150px;
+    }
+    &__product{
+        padding: 10vh $main-side-margin;
+        background-color: $very-light-grey-collor;
+        height: 60vh;
+        button{
+            @include default-dark-button;
+        }
+    }
+    &__product-block{
+        display: flex;
+        text-align: start;
+    }
+    &__add-to-card-block{
+        display: flex;
+        align-items: center;
+        input{
+            border-radius: 20px;
+            height: 80px;
+            width: 150px;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: $main-blue-collor;
+            border: 1px solid $main-blue-collor;
+            font-size: 20px;
+            text-align: center;
+            font-style: bold;
+        }
+    }
+    &__additional-description-block{
+        display: flex;
+        justify-content: center;
+        button{
+            margin-right: 20px;
+            width: 300px;
+            background-color: #EFF6F1;
+            color: $main-blue-collor;
+        }
+        .active{
+            @include default-dark-button;
+            margin-right: 20px;
+            width: 300px;
+        }
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,94 @@
+.categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15vh;
+}
+.categories h2 {
+  margin-top: 0;
+}
+.categories__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+.categories button {
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 230px;
+  height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: #274C5B;
+  color: #F9F8F8;
+  margin-top: 5vh;
+}
+.categories .hidden {
+  display: none;
+}
+
+.product {
+  background-color: #F9F8F8;
+  border-radius: 30px;
+  padding: 30px;
+  cursor: pointer;
+}
+.product__category {
+  color: white;
+  background-color: #274C5B;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 0;
+}
+.product__name {
+  border-bottom: 1px solid #D4D4D4;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+.product__price-rating-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.product__price-rating-block h6 {
+  margin: 0;
+}
+.product__prew-price {
+  display: inline;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
+.product__new-price {
+  display: inline;
+}
+.product .stars-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}/*# sourceMappingURL=categories.css.map */

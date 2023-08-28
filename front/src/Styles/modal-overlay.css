@@ -1,0 +1,122 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(244, 244, 244, 0.768627451);
+  text-align: center;
+  padding-top: 10vh;
+  z-index: 2;
+}
+.modal-overlay .product__name {
+  border: none;
+}
+.modal-overlay .hidden {
+  display: none;
+}
+.modal-overlay__close-button {
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
+  right: 150px;
+}
+.modal-overlay__product {
+  padding: 10vh 15vw;
+  background-color: #F9F8F8;
+  height: 60vh;
+}
+.modal-overlay__product button {
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 230px;
+  height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: #274C5B;
+  color: #F9F8F8;
+}
+.modal-overlay__product-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: start;
+}
+.modal-overlay__add-to-card-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.modal-overlay__add-to-card-block input {
+  border-radius: 20px;
+  height: 80px;
+  width: 150px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #274C5B;
+  border: 1px solid #274C5B;
+  font-size: 20px;
+  text-align: center;
+  font-style: bold;
+}
+.modal-overlay__additional-description-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.modal-overlay__additional-description-block button {
+  margin-right: 20px;
+  width: 300px;
+  background-color: #EFF6F1;
+  color: #274C5B;
+}
+.modal-overlay__additional-description-block .active {
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 230px;
+  height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: #274C5B;
+  color: #F9F8F8;
+  margin-right: 20px;
+  width: 300px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}/*# sourceMappingURL=modal-overlay.css.map */

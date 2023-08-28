@@ -1,0 +1,21 @@
+@import 'mixins';
+
+.not-found{
+    background-image: url('../Images/NotFound/Background.png');
+    height: 898px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: $main-side-margin;
+    &__404{
+        color: #8FA8A8;
+        font-size: 200px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+    button{
+        @include default-dark-button;
+    }
+}
