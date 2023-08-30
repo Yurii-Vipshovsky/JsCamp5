@@ -1,11 +1,22 @@
 const express = require("express");
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+
+let result = dotenv.config();
+
 const app = express();
 app.use(bodyParser.json());
-var cors = require('cors');
 app.use(cors());
 app.use(express.static('ProductsImage'));
+
+const db = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+});
 
 function sortDiscountFirst(a, b) {
     if (a.oldprice === b.oldprice) {
@@ -19,13 +30,6 @@ function sortDiscountFirst(a, b) {
     }
     return a.oldprice < b.oldprice ? 1 : -1;
 }
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456789',
-    database: 'sigma_schema',
-});
 
 app.get('/products', (req, res)=>{
 
@@ -96,7 +100,6 @@ app.post('/order', (req, res)=>{
         })
       }
     })
-
     res.sendStatus(200);
 })
 
