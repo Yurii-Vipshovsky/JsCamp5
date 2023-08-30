@@ -6,6 +6,9 @@
   display: flex;
   padding: 10vh 20vw 10vh 10vw;
 }
+.about-us-section__left-image {
+  width: 50vw;
+}
 .about-us-section__small-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,4 +49,13 @@
 .about-us-section__text-container h2 {
   margin-top: 0;
   width: 550px;
+}
+
+@media screen and (max-width: 1450px) {
+  .about-us-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }/*# sourceMappingURL=about-us-section.css.map */

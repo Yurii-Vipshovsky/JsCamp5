@@ -19,4 +19,10 @@
 }
 .eco-friendly__text-block p {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 1660px) {
+  .eco-friendly__text-block {
+    width: auto;
+  }
 }/*# sourceMappingURL=eco-friendly.css.map */

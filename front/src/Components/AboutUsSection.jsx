@@ -6,7 +6,7 @@ import buttonArrow from '../Images/ButtonArrow.svg';
 function AboutUsSection(){
     return(
         <div className="about-us-section">
-            <img src={citrusImg} alt="Citrus"></img>
+            <img className="about-us-section__left-image" src={citrusImg} alt="Citrus"></img>
             <div className="about-us-section__text-container">
                 <p className="handwriting-text">About Us</p>
                 <h2>We Believe in Working

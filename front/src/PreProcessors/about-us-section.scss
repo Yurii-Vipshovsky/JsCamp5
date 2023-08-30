@@ -5,6 +5,9 @@
     margin-top: 15vh;
     display: flex;
     padding: 10vh 20vw 10vh 10vw;
+    &__left-image{
+        width: 50vw;
+    }
     &__small-block{
         display: flex;
         align-items: center;
@@ -25,5 +28,11 @@
             margin-top: 0;
             width: 550px;
         }
+    }
+}
+
+@media screen and (max-width : 1450px) {
+    .about-us-section{ 
+        flex-direction: column;
     }
 }

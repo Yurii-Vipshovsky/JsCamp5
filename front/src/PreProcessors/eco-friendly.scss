@@ -20,3 +20,11 @@
         }
     }
 }
+
+@media screen and (max-width: 1660px) {
+    .eco-friendly{
+        &__text-block{
+            width: auto;
+        }
+    }
+}

@@ -64,3 +64,10 @@
         height: 325px;
     }
 }
+@media screen and (max-width: 1660px) {
+    .categories{
+        &__container{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
