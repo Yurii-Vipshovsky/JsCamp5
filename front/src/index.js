@@ -10,6 +10,7 @@ import {
 import Card from './Components/Card';
 import NotFound from './Components/NotFound';
 import OrderConfirm from './Components/OrderConfirm';
+import AllOrders from './Components/AllOrders';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -27,13 +28,16 @@ const router = createBrowserRouter([
     path: "order-confirm",
     element: <OrderConfirm></OrderConfirm>,
   },
+  {
+    path: "all-orders",
+    element: <AllOrders></AllOrders>,
+  },
 ]);
 
 root.render(
-  //Strict mode commented becouse of 2 times runs of useEffects
-  //<React.StrictMode>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  //</React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

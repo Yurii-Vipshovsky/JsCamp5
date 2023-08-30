@@ -3,9 +3,9 @@ import Header from './Header';
 import React, { useState, useEffect } from 'react';
 import { getCookie, setCookie } from "../Scripts/Cookies";
 import buttonArrow from '../Images/ButtonArrow.svg';
-import image from "../Images/Products/Brocoli.png";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ShowDollar from "../Scripts/ShowDollar";
 
 function Card(){
     const [countToCard, setCountToCard] = useState(getCookie('card').reduce((acc, item) => acc + item.count, 0));
@@ -16,15 +16,16 @@ function Card(){
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(products);
-    }, [products])
-
     const calcTotalPrice = ()=>{
         let totalPrice = 0;
         totalPrice = products.reduce((acc, item) => acc + item.count*item.product.newprice, totalPrice)
-        return totalPrice;
+        return totalPrice+'$';
     }
+
+    useEffect(()=>{
+        setCountToCard(products.reduce((acc, item) => acc + item.count, 0));
+        setCookie('card', products, 30);
+    },[products])
 
     const calcDiscount = ()=>{
         let discount = 0;
@@ -33,12 +34,11 @@ function Card(){
                 discount += (element.product.oldprice-element.product.newprice)*element.count;
             }            
         });
-        return discount;
+        return discount+'$';
     }
 
     function deleteFromCard(id){
         setProducts(products.filter((product) => product.product.id !== id));
-        //on delete inputs doesn't change
     }
 
     function changeQuantity(id, value){
@@ -55,8 +55,10 @@ function Card(){
     }
 
     function showOrderFormFunc(){
-        setShowOrderForm(true);
-        document.querySelector('.card__order-button').remove();
+        if(countToCard>0){
+            setShowOrderForm(true);
+            document.querySelector('.card__order-button').remove();
+        }
     }
 
     function submitOrder(e){
@@ -72,15 +74,14 @@ function Card(){
             productsArr.push({'id':element.product.id,
                             'count':element.count})
         });
-        dataToSend["produts"] = productsArr;
+        dataToSend["products"] = productsArr;
 
-        console.log(dataToSend);
         axios.post('http://localhost:4000/order', dataToSend, {
             headers: {
               'Content-Type': 'application/json'
             }})
         .then(function (response) {
-            //clean Card
+            setCookie('card', [], 30);
             navigate('/order-confirm');
         })
         .catch(function (error) {
@@ -94,7 +95,7 @@ function Card(){
             <form className='order-form' onSubmit={submitOrder}>
                 <label>Full Name* <input name="name" required placeholder='Your Full Name'></input></label>
                 <label>Your Email* <input name="email" required placeholder='example@yourmail.com'></input></label>
-                <label>Address* <input name='address' required placeholder='Your company  address'></input></label>
+                <label>Address* <input name='address' required placeholder='Your company address'></input></label>
                 <label>Phone number* <input name='phone' required placeholder='Enter your phone'></input></label>
                 <label className='order-form__message'>Message <textarea name='message' placeholder='Some extra information'></textarea></label>
                 <button type="submit">Confirm</button>
@@ -112,16 +113,16 @@ function Card(){
                 </div>
                 <div className='card__orders-container'>
                     {products.map((elem) => (
-                        <div id={'product-'+elem.product.id} className="card__product">
+                        <div key={elem.product.id} className="card__product">
                             <div className="card__product-name-price">
-                                <img src={image} alt={elem.product.name}></img>
+                                <img src={"http://localhost:4000/"+ elem.product.image} alt={elem.product.name}></img>
                                 <h6>{elem.product.name}</h6>
-                                <p className="product__prew-price">{elem.product.oldprice}</p>
-                                <h6 className="product__new-price">{elem.product.newprice}</h6>
+                                {Boolean(elem.product.oldprice) && <p className="product__prew-price">{ShowDollar(elem.product.oldprice)}</p>}
+                                <h6 className="product__new-price">{ShowDollar(elem.product.newprice)}</h6>
                             </div>
                             <div className="card__quantity-block">
                                 <h6>Quantity : </h6>
-                                <input id='product-count' type='number' defaultValue={elem.count} onChange={e => changeQuantity(elem.product.id, e.target.value)}></input>
+                                <input className='card__product-count' type='number' value={elem.count} onChange={e => changeQuantity(elem.product.id, e.target.value)}></input>
                             </div>
                             <button className='card__delete-from-card' onClick={() => deleteFromCard(elem.product.id)}>X</button>
                         </div>

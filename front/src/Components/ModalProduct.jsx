@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
 import buttonArrow from '../Images/ButtonArrow.svg';
-import image from "../Images/Products/Brocoli.png";
 import ShowStars from "../Scripts/ShowStars";
+import ShowDollar from "../Scripts/ShowDollar";
 
 const ModalProduct = ({ isOpen, onClose, getProduct, addToCard }) => {
     if (!isOpen) return null;
@@ -13,7 +12,7 @@ const ModalProduct = ({ isOpen, onClose, getProduct, addToCard }) => {
     }
 
     const chageDescription = (e) =>{
-        if (e.target.id == 'additional-info-button') {
+        if (e.target.id === 'additional-info-button') {
             document.getElementById('product-description-button').classList.remove('active');
             document.getElementById('additional-info-button').classList.add('active');
             document.getElementById('additional-info-text').classList.remove('hidden');
@@ -30,17 +29,14 @@ const ModalProduct = ({ isOpen, onClose, getProduct, addToCard }) => {
     function sendDataToCard () {
         let productCount = parseInt(document.getElementById('product-count').value);
         if(isNaN(productCount) || productCount<=0){
-            //error
             return;
         }
         addToCard({
-            //change to product id mb
             'product':getProduct,
             'count': productCount
         });
     };
- 
-    const imagePath = "";
+
     return (
         <div className="modal-overlay" onClick={handleModalClick}>
             <div className='modal-overlay__product'>
@@ -48,16 +44,16 @@ const ModalProduct = ({ isOpen, onClose, getProduct, addToCard }) => {
                 <div className='modal-overlay__product-block'>
                     <div className='modal-overlay__image-block'>       
                         <p className="product__category">{getProduct.category}</p>
-                        <img src={image} alt={getProduct.name}></img>
+                        <img src={"http://localhost:4000/"+ getProduct.image} alt={getProduct.name}></img>
                     </div>
                     <div className='modal-overlay__main-description-block'>
                         <h6 className="product__name">{getProduct.name}</h6>
                         <div className='stars-container'>
                             {ShowStars(getProduct.rating)}
                         </div>
-                        <p className="product__prew-price">{getProduct.oldprice}</p>
-                        <h6 className="product__new-price">{getProduct.newprice}</h6>
-                        <p>{getProduct.smallDiscription}</p>
+                        {Boolean(getProduct.oldprice) && <p className="product__prew-price">{ShowDollar(getProduct.oldprice)}</p>}
+                        <h6 className="product__new-price">{ShowDollar(getProduct.newprice)}</h6>
+                        <p>{getProduct.smallDescription}</p>
                         <div className='modal-overlay__add-to-card-block'>
                             <h6>Quantity : </h6>
                             <input id='product-count' type='number' defaultValue='1'></input>

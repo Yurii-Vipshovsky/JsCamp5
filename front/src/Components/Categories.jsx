@@ -1,6 +1,6 @@
-import image from "../Images/Products/Brocoli.png";
 import buttonArrow from "../Images/ButtonArrow.svg";
 import ShowStars from "../Scripts/ShowStars";
+import ShowDollar from "../Scripts/ShowDollar";
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
@@ -11,13 +11,16 @@ function Categories({ onData }){
 
     const [productsToShow, setProductsToShow] = useState([]);
 
-    const imagePath = '../Images/Products/';
-
     useEffect(() => {
         async function fetchProducts() {
-            const result = await axios.get("http://localhost:4000/products");
-            setProducts(result.data);
-            setProductsToShow(result.data.slice(0,HALF_PRODUCTS_COUNT));
+            try{
+                const result = await axios.get("http://localhost:4000/products");
+                setProducts(result.data);
+                setProductsToShow(result.data.slice(0,HALF_PRODUCTS_COUNT));
+            }
+            catch{
+                console.log('No data From Server');
+            }            
         }
     
         fetchProducts();
@@ -45,13 +48,13 @@ function Categories({ onData }){
             <h2>Our Products</h2>
             <div className="categories__container">
                 {productsToShow.map((elem, index) => (
-                    <div className="product" onClick={()=>sendDataToParent(index)}>
+                    <div key={elem.id} className="product" onClick={()=>sendDataToParent(index)}>
                         <p className="product__category">{elem.category}</p>
-                        <img src={imagePath+elem.img} alt={elem.name}></img>
+                        <img className="product__image" src={"http://localhost:4000/"+ elem.image} alt={elem.name}></img>
                         <h6 className="product__name">{elem.name}</h6>
                         <div className="product__price-rating-block">
-                            <p className="product__prew-price">{elem.oldprice}</p>
-                            <h6 className="product__new-price">{elem.newprice}</h6>
+                            {Boolean(elem.oldprice) &&<p className="product__prew-price">{ShowDollar(elem.oldprice)}</p>}
+                            <h6 className="product__new-price">{ShowDollar(elem.newprice)}</h6>
                             <div className='stars-container'>
                                 {ShowStars(elem.rating)}
                             </div>

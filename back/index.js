@@ -1,174 +1,102 @@
 const express = require("express");
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 var cors = require('cors');
 app.use(cors());
+app.use(express.static('ProductsImage'));
 
+function sortDiscountFirst(a, b) {
+    if (a.oldprice === b.oldprice) {
+        return 0;
+    }
+    if (a.oldprice === null) {
+        return 1;
+    }
+    if (b.oldprice === null) {
+        return -1;
+    }
+    return a.oldprice < b.oldprice ? 1 : -1;
+}
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '123456789',
+    database: 'sigma_schema',
+});
 
 app.get('/products', (req, res)=>{
 
-    const data = [
-        {
-            id:1,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            smallDiscription: "Small description. Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.",
-            productDescription: "Product description. Welcome to the world of natural and organic. Here you can discover the bounty of nature. We have grown on the principles of health, ecology, and care. We aim to give our customers a healthy chemical-free meal for perfect nutrition. It offers about 8–10% carbs. Simple sugars — such as glucose and fructose — make up 70% and 80% of the carbs in raw.",
-            additionalInfo: "Additional info. A refrigerator is the best place to store pistachios if you don't plan to eat them all right away. Package them in an airtight container (Ziplock, Tupperware, jar with tight lid) and they will stay fresh for up to a year. An airtight package helps prevent condensation, which would make them lose their crunch.",
-            rating: 4
-        },
-        {
-            id:2,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:3,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:4,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:5,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:6,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:7,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:8,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:9,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:10,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:11,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:12,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:13,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:14,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:15,
-            category: 'Vegetable',
-            img: 'Brocoli.png',
-            name: 'Calabrese Broccoli',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-        {
-            id:16,
-            category: 'Fresh',
-            img: 'Banana.jpg',
-            name: 'Banana',
-            oldprice: 20.00,
-            newprice: 13.00,
-            rating: 5
-        },
-    ];
+    const sql = 'SELECT * FROM product';
     
-    res.setHeader('Content-Type', 'application/json');
-
-    res.json(data)
+    db.query(sql, (err, result) => {
+      if (err) {
+        console.error('Помилка запиту до бази даних: ' + err);
+        res.status(500).json({ error: 'Помилка сервера' });
+      } 
+      else {
+        res.json(result.sort(sortDiscountFirst));
+      }
+    })
 })
 
-app.get('/*', (req, res)=>{
-    res.send("404 NOT FOND")
+app.get('/all-orders', (req, res)=>{
+
+  const sql = 'select * from order_clients INNER JOIN order_products ON order_clients.orderId=order_products.orderId INNER JOIN product ON order_products.productId=product.Id;';
+  
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error('Помилка запиту до бази даних: ' + err);
+      res.status(500).json({ error: 'Помилка сервера' });
+    } 
+    else {
+      res.json(result);
+    }
+  })
 })
 
 app.post('/order', (req, res)=>{
-    console.log('Got body:', req.body);
+    let maxOrderId = 1;
+
+    var sql = "select max(orderId) from order_clients";
+    db.query(sql, (err, result) => {
+      if (err) {
+        console.error('Помилка запиту до бази даних: ' + err);
+        res.status(500).json({ error: 'Помилка сервера' });
+      } 
+      else {
+        if(result[0]['max(orderId)']!=null){
+          maxOrderId = result[0]['max(orderId)']+1;
+        }
+
+        var sql = "INSERT INTO order_clients (fullName, email, address, phoneNumber, orderId, message) VALUES ?";
+        var values = [[req.body.name, req.body.email, req.body.address, req.body.phone, maxOrderId, req.body.message]];
+        
+        db.query(sql, [values], (err, result) => {
+          if (err) {
+            console.error('Помилка запиту до бази даних: ' + err);
+            res.status(500).json({ error: 'Помилка сервера' });
+          }
+        })
+
+        var sql = "INSERT INTO order_products (orderId, productId, count) VALUES ?";
+        var values = [];
+        
+        req.body.products.forEach(element => {
+          values.push([maxOrderId, element.id, element.count]);
+        });
+        
+        db.query(sql, [values], (err, result) => {
+          if (err) {
+            console.error('Помилка запиту до бази даних: ' + err);
+            res.status(500).json({ error: 'Помилка сервера' });
+          }
+        })
+      }
+    })
+
     res.sendStatus(200);
 })
 

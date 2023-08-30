@@ -18,6 +18,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .categories button {
   border-radius: 20px;
@@ -91,4 +94,7 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+}
+.product__image {
+  height: 325px;
 }/*# sourceMappingURL=categories.css.map */

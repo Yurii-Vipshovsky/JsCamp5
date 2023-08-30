@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import ShowStars from "../Scripts/ShowStars";
+import ShowDollar from "../Scripts/ShowDollar";
 
 function Offer({ onData }){
     const [products, setProducts] = useState([]);
 
-    const imagePath = '../Images/Products/';
-
     useEffect(() => {
         async function fetchProducts() {
+            try{
             const result = await axios.get("http://localhost:4000/products");
             setProducts(result.data.slice(0,4));
+            }
+            catch{
+                console.log('No data From Server');
+            }
         }
     
         fetchProducts();
@@ -26,13 +30,13 @@ function Offer({ onData }){
             <h2>We Offer Organic For You</h2>
             <div className="categories__container">
                 {products.map((elem, index) => (
-                    <div className="product" onClick={()=>sendDataToParent(index)}>
+                    <div key={elem.id} className="product" onClick={()=>sendDataToParent(index)}>
                         <p className="product__category">{elem.category}</p>
-                        <img src={imagePath+elem.img} alt={elem.name}></img>
+                        <img className="product__image" src={"http://localhost:4000/"+ elem.image} alt={elem.name}></img>
                         <h6 className="product__name">{elem.name}</h6>
                         <div className="product__price-rating-block">
-                            <p className="product__prew-price">{elem.oldprice}</p>
-                            <h6 className="product__new-price">{elem.newprice}</h6>
+                            {Boolean(elem.oldprice) && <p className="product__prew-price">{ShowDollar(elem.oldprice)}</p>}
+                            <h6 className="product__new-price">{ShowDollar(elem.newprice)}</h6>
                             <div className='stars-container'>
                                 {ShowStars(elem.rating)}
                             </div>

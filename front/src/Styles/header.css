@@ -80,6 +80,9 @@
   font-size: 18px;
   font-weight: bold;
 }
+.header-block__red-text {
+  color: red !important;
+}
 
 #cart-count {
   display: inline;

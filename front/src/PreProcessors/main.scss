@@ -15,10 +15,17 @@
 @import 'card';
 @import 'not-found';
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
 
 p{
     font-size: 1.2em;
     color: $dark-grey-collor;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a{
@@ -74,4 +81,10 @@ h6{
 
 .order-confirm__text{
     text-align: center;
+}
+
+.all-orders{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }

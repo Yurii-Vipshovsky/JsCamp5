@@ -136,6 +136,7 @@
 }
 .order-form__message textarea {
   padding: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 .order-form button {
   grid-column: 1/3;
