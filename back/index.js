@@ -31,19 +31,24 @@ function sortDiscountFirst(a, b) {
     return a.oldprice < b.oldprice ? 1 : -1;
 }
 
-app.get('/products', (req, res)=>{
+let productsCache = []
 
-    const sql = 'SELECT * FROM product';
+app.get('/products', (req, res)=>{    
+    if(productsCache.length==0){
+      const sql = 'SELECT * FROM product';
+      
+      db.query(sql, (err, result) => {
+        if (err) {
+          console.error('Помилка запиту до бази даних: ' + err);
+          res.status(500).json({ error: 'Помилка сервера' });
+        } 
+        else {
+          productsCache = result.sort(sortDiscountFirst);
+        }
+      })
+    }
     
-    db.query(sql, (err, result) => {
-      if (err) {
-        console.error('Помилка запиту до бази даних: ' + err);
-        res.status(500).json({ error: 'Помилка сервера' });
-      } 
-      else {
-        res.json(result.sort(sortDiscountFirst));
-      }
-    })
+    res.json(productsCache);
 })
 
 app.get('/all-orders', (req, res)=>{
