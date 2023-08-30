@@ -68,3 +68,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Available Routes
+
+### http://localhost:3000
+Main page where users can add products to card
+
+### http://localhost:3000/Card
+Card page where users can change quantity of products, delete it from card or order.
+If user wants to order, he/she must enter Full Name, Email, Address, Phone number and leave a message if desired.
+User can't order if card is empty.
+If order confirmed user automaticaly navigates to http://localhost:3000/order-confirm and card become empty
+
+### http://localhost:3000/all-orders
+Special page where admin can see all orders of all users
+
+### Another Routes
+If user make mistake in Route opens Not Found page where user can come back to home page
