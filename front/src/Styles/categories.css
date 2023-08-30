@@ -40,9 +40,15 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #274C5B;
   color: #F9F8F8;
   margin-top: 5vh;
+}
+.categories button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .categories .hidden {
   display: none;
@@ -53,6 +59,12 @@
   border-radius: 30px;
   padding: 30px;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.product:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .product__category {
   color: white;

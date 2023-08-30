@@ -38,10 +38,16 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: white;
   color: #274C5B;
   border: 1px solid #274C5B;
   margin-bottom: 41px;
+}
+.news__header button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .news__container {
   display: -webkit-box;
@@ -99,9 +105,15 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #EFD372;
   color: #274C5B;
   margin-left: 50px;
+}
+.news__text-block button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .news__text-block h6 {
   margin-top: 10px;

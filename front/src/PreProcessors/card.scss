@@ -87,6 +87,10 @@
         text-align: left;
         padding-left: 20px;
         resize: none;
+        transition: 0.5s;
+    }
+    .invalid-input{
+        background-color: #f22424;
     }
     label{
         font-size: 1.2em;

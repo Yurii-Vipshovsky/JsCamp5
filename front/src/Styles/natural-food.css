@@ -32,6 +32,12 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #EFD372;
   color: #274C5B;
+}
+.natural-food__text-container button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }/*# sourceMappingURL=natural-food.css.map */

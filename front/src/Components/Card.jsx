@@ -63,30 +63,58 @@ function Card(){
 
     function submitOrder(e){
         e.preventDefault();
+        let inputs = document.querySelectorAll('input');
+        inputs.forEach(element => {
+            element.classList.remove('invalid-input');
+        });
+        let isDataCorrect = true;
         let form = document.querySelector('.order-form');        
         const data = new FormData(form);
         let dataToSend = {};
+        const lettersPattern = /^[a-zA-Zа-яА-Я\s]+$/;
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var phonePattern = /^[\d+]+$/;
         for (const [name,value] of data) {
+            if(name==='name'){
+                if(!lettersPattern.test(value)){
+                    isDataCorrect=false;
+                    document.querySelector('input[name="name"]').classList.add('invalid-input');
+                }
+            }
+            if(name==='email'){
+                if(!emailPattern.test(value)){
+                    isDataCorrect=false;
+                    document.querySelector('input[name="email"]').classList.add('invalid-input');
+                }
+            }
+            if(name==='phone'){
+                if(!phonePattern.test(value)){
+                    isDataCorrect=false;
+                    document.querySelector('input[name="phone"]').classList.add('invalid-input');
+                }
+            }
             dataToSend[name] = value;
         }
-        let productsArr = [];
-        products.forEach(element => {
-            productsArr.push({'id':element.product.id,
-                            'count':element.count})
-        });
-        dataToSend["products"] = productsArr;
+        if(isDataCorrect){
+            let productsArr = [];
+            products.forEach(element => {
+                productsArr.push({'id':element.product.id,
+                                'count':element.count})
+            });
+            dataToSend["products"] = productsArr;
 
-        axios.post('http://localhost:4000/order', dataToSend, {
-            headers: {
-              'Content-Type': 'application/json'
-            }})
-        .then(function (response) {
-            setCookie('card', [], 30);
-            navigate('/order-confirm');
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+            axios.post('http://localhost:4000/order', dataToSend, {
+                headers: {
+                'Content-Type': 'application/json'
+                }})
+            .then(function (response) {
+                setCookie('card', [], 30);
+                navigate('/order-confirm');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     const OrderComponent = () => {

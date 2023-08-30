@@ -35,8 +35,14 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #274C5B;
   color: #F9F8F8;
+}
+.card__orders-container button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .card__orders-container h3 {
   margin-right: 15vw;
@@ -124,6 +130,11 @@
   text-align: left;
   padding-left: 20px;
   resize: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.order-form .invalid-input {
+  background-color: #f22424;
 }
 .order-form label {
   font-size: 1.2em;

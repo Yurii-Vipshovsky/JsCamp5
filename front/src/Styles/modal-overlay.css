@@ -44,8 +44,14 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #274C5B;
   color: #F9F8F8;
+}
+.modal-overlay__product button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .modal-overlay__product-block {
   display: -webkit-box;
@@ -105,10 +111,16 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #274C5B;
   color: #F9F8F8;
   margin-right: 20px;
   width: 300px;
+}
+.modal-overlay__additional-description-block .active:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 input::-webkit-outer-spin-button,
