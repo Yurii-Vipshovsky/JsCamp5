@@ -92,6 +92,10 @@
     .invalid-input{
         background-color: #f22424;
     }
+    &__validation-errors{
+        color: #f22424;
+        grid-column: 1/3;
+    }
     label{
         font-size: 1.2em;
         color: $main-blue-collor;

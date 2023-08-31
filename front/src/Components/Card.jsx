@@ -67,34 +67,40 @@ function Card(){
         inputs.forEach(element => {
             element.classList.remove('invalid-input');
         });
+        let errorMessageContainer = document.querySelector('.order-form__validation-errors');
+        errorMessageContainer.innerHTML='';
         let isDataCorrect = true;
         let form = document.querySelector('.order-form');        
         const data = new FormData(form);
         let dataToSend = {};
         const lettersPattern = /^[a-zA-Zа-яА-Я\s]+$/;
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        var phonePattern = /^[\d+]+$/;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        const phonePattern = /^[\d+]+$/;
+        let errorMessage = '';
         for (const [name,value] of data) {
             if(name==='name'){
                 if(!lettersPattern.test(value)){
                     isDataCorrect=false;
                     document.querySelector('input[name="name"]').classList.add('invalid-input');
+                    errorMessage += 'Invalid characters in Full Name field, can be only latters;<br/>'
                 }
             }
             if(name==='email'){
                 if(!emailPattern.test(value)){
                     isDataCorrect=false;
-                    document.querySelector('input[name="email"]').classList.add('invalid-input');
+                    document.querySelector('input[name="email"]').classList.add('invalid-input');                    
                 }
             }
             if(name==='phone'){
                 if(!phonePattern.test(value)){
                     isDataCorrect=false;
                     document.querySelector('input[name="phone"]').classList.add('invalid-input');
+                    errorMessage += 'Invalid characters in Phone Number field, can be only numbers and + sign'
                 }
             }
             dataToSend[name] = value;
         }
+        errorMessageContainer.innerHTML = errorMessage;
         if(isDataCorrect){
             let productsArr = [];
             products.forEach(element => {
@@ -122,10 +128,11 @@ function Card(){
           <div>
             <form className='order-form' onSubmit={submitOrder}>
                 <label>Full Name* <input name="name" required placeholder='Your Full Name'></input></label>
-                <label>Your Email* <input name="email" required placeholder='example@yourmail.com'></input></label>
+                <label>Your Email* <input name="email" type="email" required placeholder='example@yourmail.com'></input></label>
                 <label>Address* <input name='address' required placeholder='Your company address'></input></label>
                 <label>Phone number* <input name='phone' required placeholder='Enter your phone'></input></label>
                 <label className='order-form__message'>Message <textarea name='message' placeholder='Some extra information'></textarea></label>
+                <p className='order-form__validation-errors'></p>
                 <button type="submit">Confirm</button>
             </form>
           </div>
